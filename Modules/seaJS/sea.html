@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="sea.js"></script>
+<script>
+    //遵循CMD规范，这里要注意模块化jquery，由于jquery低版本不支持模块化，所以要自行判断
+    //末尾修改成
+    //if ( typeof define === "function") {
+    //define(function() {
+    //return jQuery;
+    //} );
+    //}
+    seajs.config({
+        alias: {
+            "jquery": "jquery-1.11.0.min.js"
+        }
+    });
+//    seajs.use(['jquery'], function($) {
+//        $("#hello").html("11111");
+//    });
+        seajs.use("hello.js");
+</script>
+
+<div id="hello"></div>
+<button id="beautiful-sea">点击</button>
+</body>
+</html>

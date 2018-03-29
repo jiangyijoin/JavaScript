@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+<script src="./../node_modules/babel-core/browser.js"></script>
+<script type="text/babel">
+    //gen.next()遍历函数，知道yield的时候停止，返回yield的值，直到下一次执行gen.next()的时候继续
+    //    function* idMaker() {
+    //        let index = 0;
+    //        while (true)
+    //            yield index++;
+    //    }
+    //
+    //    let gen = idMaker(); // "Generator { }"
+    //
+    //    console.log(gen.next().value);
+    //    // 0
+    //    console.log(gen.next().value);
+    //    // 1
+    //    console.log(gen.next().value);
+
+    //es6的class
+    class Point {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        toString() {
+            return '(' + this.x + ', ' + this.y + ')';
+        }
+    }
+
+    function f() {
+        alert('es5的写法');
+    }
+
+    var p = new Point('横坐标', '纵坐标');
+    alert(p);
+    const name = '张三';
+    alert(name);
+    f();
+
+    var arrs = [1, 2, 3, 4, 5, 6];
+
+    var array = arrs.filter(obj => obj > 3);
+
+    console.log(arrs);
+    console.log(array);
+</script>
+
+</body>
+</html>

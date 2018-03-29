@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="promise.js"></script>
+    <script type="text/javascript">
+
+
+        var i = 10;
+        function fn1(resolve, reject) {
+            setTimeout(function() {
+                console.log('步骤一：执行');
+                resolve('1');
+            },4000);
+            //reject('1111111');
+        }
+
+        function fn2(resolve, reject) {
+            setTimeout(function() {
+                console.log('步骤二：执行');
+                resolve('2');
+            },1000);
+        }
+
+        new Promise(fn1).then(function(val){
+            console.log(val);
+            return new Promise(fn2);
+        })
+
+        Promise.reject("Testing static reject").then(function(reason) {
+            // 未被调用
+        }, function(reason) {
+            console.log(reason); // "测试静态拒绝"
+        });
+
+        Promise.reject(new Error("fail")).then(function(error) {
+            // 未被调用
+        }, function(error) {
+            console.log(error); // 堆栈跟踪
+        });
+
+
+//        new Promise(fn1).then(function(val){
+//            console.log(val);
+//            return new Promise(fn2);
+//        }).catch(function (err){
+//            console.log(err);
+//        }).then(function(val){
+//            console.log(val);
+//            return 33;
+//        }).then(function(val){
+//            console.log(val);
+//        });
+
+//        new Promise(fn1).then(function(val){
+//            console.log(val);
+//            return new Promise(fn2);
+//        }).catch(function (err){
+//            console.log(err);
+//        }).then(function(val){
+//            console.log(val);
+//            return 33;
+//        }).then(function(val){
+//            console.log(val);
+//        });
+
+//        new Promise(function (resolve, reject) {
+//            throw new Error('悲剧了，又出 bug 了');
+//        }).catch(function(err){
+//            console.log(err);
+//        });
+
+    </script>
+
+
+</head>
+<body>
+
+
+
+</body>
+</html>
