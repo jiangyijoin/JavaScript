@@ -8,6 +8,9 @@
   - es7:async+await
   - ajax
   
+- webpack
+
+  
   
  - 模块化
    - es5：seaJS+requireJS
@@ -22,6 +25,11 @@
   - this+闭包
   
   
+  
   - 设计模式和算法
+    - 单列模式
+    - 观察者模式
+    - 代理模式
+    - 工厂模式
   
   
