@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+//    window.name = '第一个name'
+//    console.log(this.name);
+//    var add = function(){
+//        this.name = "第二个name";
+//        console.log(this.name);
+//    }
+//    var a1 = new add();
+//    console.log(a1.name);
+//    add();
+//    console.log(this.name);
+//
+//
+//
+//    function Persion(){
+//        this.name = "zhangsan";
+//        console.log(this);
+//    }
+//    console.log(this)
+//    var p = new Persion();
+//    console.log(p.name)
+
+
+    var obj = {
+        x: 10,
+        fn: function () {
+            console.log(this);
+            console.log(this.x);
+            function f() {
+                console.log(this);
+                console.log(this.x);
+            }
+            f();
+        }
+    }
+    obj.fn();
+
+</script>
+
+</body>
+</html>

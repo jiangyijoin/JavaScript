@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //通过window的json方法可以对对象和数组进行序列化，然后还原，就达到了深拷贝的效果
+    //str = JSON.stringify(obj)系列化对象
+    //newobj = JSON.parse(str); //还原
+
+//    var cloneObj = function(obj){
+//        var str, newobj = obj.constructor === Array ? [] : {};
+//        if(typeof obj !== 'object'){
+//            return;
+//        } else if(window.JSON){
+//            str = JSON.stringify(obj), //系列化对象
+//                newobj = JSON.parse(str); //还原
+//        } else {
+//            for(var i in obj){
+//                newobj[i] = typeof obj[i] === 'object' ?
+//                    cloneObj(obj[i]) : obj[i];
+//            }
+//        }
+//        return newobj;
+//    };
+
+    //for循环解决
+    var arr = [1,2,3];
+    var arr1 = [];
+    for(var i = 0;i<arr.length;i++){
+        arr1[i] = arr[i]
+    }
+    arr[1]= 4;
+    console.log(arr);
+    console.log(arr1);
+
+    //array的slice()方法，从已有数组抽离部分形成新的数组
+    var arr = [1,2,3];
+    var arr1 = arr.slice(0);
+
+    //concat 连接多个数组组成一个新的数组
+
+    var arr = [1,2,3,4,5]
+    var arr2 = arr.concat()
+
+    //终极解决方案 （适用于对象和数组）NewData = JSON.parse(JSON.stringify(Olddata))
+
+
+</script>
+
+<script src="./../node_modules/babel-core/browser.js"></script>
+<script type="text/babel">
+    //es6的方法  数组深拷贝    ...扩展运算符
+    var arr = [1,2,3,4,5]
+    var [ ...arr2 ] = arr
+    arr[2] = 5
+    console.log(arr)
+    console.log(arr2)
+</script>
+
+</body>
+</html>

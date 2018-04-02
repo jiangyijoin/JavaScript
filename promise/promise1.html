@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    //promise先执行，因为setTimeout有一个4ms的最短时间
+    setTimeout(function () {
+        console.log(1)
+    }, 0);
+    new Promise(function executor(resolve) {
+        resolve();
+    }).then(function () {
+        console.log(2);
+    });
+
+</script>
+
+</body>
+</html>
