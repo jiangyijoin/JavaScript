@@ -7,16 +7,51 @@
 <body>
 <script type="text/javascript">
 //数组去重
-
-
-
-
-//数组判断5个数字顺子
-
-var arr= [1,2,3,4,5];
-function issort(arr){
-
+//1，利用indexof的方法
+var arr = [1,2,4,5,6,2,4,5,3];
+var arrnew = [];
+for(var i=0;i<arr.length;i++){
+    //indexOf返回在当前数组中的位置
+    if(arrnew.indexOf(arr[i]) == -1){
+        arrnew.push(arr[i])
+    }
 }
+console.log(arrnew);
+
+//根据sort排序，之后判断相邻两个是否相等
+var arr = [1,2,4,5,6,2,4,5,3]
+var arrnew = arr.sort();
+var arrnew1 = [arrnew[0]];
+for(var i = 1;i<arrnew.length;i++){
+    if(arrnew[i] != arrnew[i-1]){
+        arrnew1.push(arrnew[i])
+    }
+}
+console.log(arrnew1);
+
+//数组判断5个数字顺子  ,x为小王，y为大王，大小王可以替换一个。
+function issort(arr){
+    var re = arr.sort();
+    var num = 0,num1 = 0;
+    for(var i=0;i<re.length;i++){
+        if(re[i] == 'x'||re[i] == 'y'){
+            num1++;
+            re.splice(i,i);
+        }
+    }
+    for(var i=1;i<re.length;i++){
+        num = num + (re[i]-re[i-1]-1)
+    }
+    return num<=num1?true:false;
+}
+
+console.log('[1,2,3,5,6] is '+issort([1,2,3,5,6]));
+console.log('[1,2,3,5,4] is '+issort([1,2,3,5,4]));
+
+
+//afjghdfraaaasdenas出现最多的字母
+
+
 
 
 
