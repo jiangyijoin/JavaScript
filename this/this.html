@@ -6,41 +6,28 @@
 </head>
 <body>
 <script type="text/javascript">
-//    window.name = '第一个name'
-//    console.log(this.name);
-//    var add = function(){
-//        this.name = "第二个name";
-//        console.log(this.name);
-//    }
-//    var a1 = new add();
-//    console.log(a1.name);
-//    add();
-//    console.log(this.name);
-//
-//
-//
-//    function Persion(){
-//        this.name = "zhangsan";
-//        console.log(this);
-//    }
-//    console.log(this)
-//    var p = new Persion();
-//    console.log(p.name)
-
 
     var obj = {
         x: 10,
         fn: function () {
             console.log(this);
-            console.log(this.x);
+            console.log(this.x);//this指向上层对象
             function f() {
                 console.log(this);
-                console.log(this.x);
+                console.log(this.x);//this指向window的对象。
             }
             f();
         }
     }
     obj.fn();
+
+
+
+    //this指向调用的对象。
+    //1,函数，全局对象window，2，对象的属性，指向上层对象  3，构造函数调用，指向新对象   4，apply，call调用，指向新的对象
+
+
+
 
 </script>
 

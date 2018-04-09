@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    //任何函数，对象的原型都会最终指向object。
+    function F(){
+        var a = '123';
+    }
+    console.log(F.prototype);
+
+    var M = {
+        a:'123',
+        b:function (){
+            alert(2);
+        }
+    }
+
+    var num=0;
+    for(o in A.prototype) {
+        alert(o);//alert出原型属性名字
+        num++;
+    }
+    //alert("member: " + num);//alert出原型所有成员个数。
+
+    function A(x){
+        this.x = x;
+    }
+    A.prototype.a = "a";
+    function B(x,y){
+        this.y = y;
+        A.call(this,x);
+    }
+    B.prototype.b1 = function(){
+        alert("b1");
+    }
+    B.prototype = new A();//原型重新进行了指向。指向了构造函数A的原型，所有值钱B声明的原型对象中的对象，方法不存在了。
+    B.prototype.b2 = function(){
+        alert("b2");
+    }
+    B.prototype.constructor = B;
+    var obj = new B(1,3);
+    console.log(obj);
+
+
+
+</script>
+
+</body>
+</html>
